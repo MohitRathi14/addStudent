@@ -1,3 +1,47 @@
 <%- include("./base/header") %>
-<h1>hello</h1>
-<%- include("./base/footer") %>
+<%- include("./base/nav") %>
+ <div class=" container">
+       <div class="alert bg-primary text-white text-center my-3"> 
+           <h2> ADD STUDENT </h2>
+       </div>
+    </div>
+     <div class="container">
+         <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <form action="/add/student" method="POST">
+                     <div class="mb-3">
+
+                        <label for="rollNo" class="form-label">RollNo: </label>
+                        <input type="text" class="form-control" id="rollNo" name="rollNo" required>
+                    </div>
+                    <div class="mb-3">
+                         <div class="mb-3">
+
+                        <label for="StudentName" class="form-label"> StudentName :</label>
+                        <input type="text" class="form-control" id="StudentName" name="StudentName" required>
+                    </div>
+
+                        <label for="fatherName" class="form-label">FatherName</label>
+                        <input type="text" class="form-control" id="fatherName" name="fatherName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="course" class="form-label">Course</label>
+                        <input type="text" class="form-control" id="course" name="course" required>
+                    </div>
+                     <div class="mb-3">
+                        <label for="branch" class="form-label">Branch</label>
+                        <input type="text" class="form-control" id="branch" name="branch" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="yearOfAdmission" class="form-label">Year Of Admission</label>
+                        <input type="text" class="form-control" id="yearOfAdmission" name="yearOfAdmission" required>
+                    </div>
+                    <button type="submit" class="btn btn-warning w-100">Add Student</button>                    
+                </form>
+
+            </div>
+
+         </div>
+
+    </div>
+<%- include('base/footer.ejs') %>
