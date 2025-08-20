@@ -2,10 +2,12 @@ const express = require('express');
 const user = require('./routes/user');
 const path = require('path');
 const connectDB = require('./connection.js');
+const student = require('./routes/student');
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 connectDB();
 app.use(user)
+app.use(student);
 app.set('view engine', 'ejs');
 app.set('views', path.resolve('./views'));
 
