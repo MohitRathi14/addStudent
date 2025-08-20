@@ -1,0 +1,181 @@
+<%- include("./base/header") %>
+
+<style>
+    body {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Arial', sans-serif;
+    }
+
+    .login-container {
+        display: flex;
+        max-width: 900px;
+        height: 500px;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+    }
+
+    .form-section {
+        flex: 1;
+        padding: 40px 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .logo-section {
+        flex: 1;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+
+    .logo-container {
+        text-align: center;
+        color: white;
+    }
+
+    .logo-icon {
+        width: 100px;
+        height: 100px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        font-size: 40px;
+        border: 3px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .logo-text {
+        font-size: 24px;
+        font-weight: 300;
+        letter-spacing: 2px;
+    }
+
+    .form-title {
+        color: #333;
+        margin-bottom: 30px;
+        font-weight: 300;
+        font-size: 28px;
+    }
+
+    .form-control {
+        border: none;
+        border-bottom: 2px solid #e0e0e0;
+        border-radius: 0;
+        padding: 12px 0;
+        margin-bottom: 25px;
+        transition: all 0.3s ease;
+        background: transparent;
+    }
+
+    .form-control:focus {
+        box-shadow: none;
+        border-bottom-color: #667eea;
+        background: transparent;
+    }
+
+    .form-label {
+        color: #666;
+        font-weight: 500;
+        margin-bottom: 5px;
+        font-size: 14px;
+    }
+
+    .btn-login {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border: none;
+        padding: 12px;
+        border-radius: 50px;
+        color: white;
+        font-weight: 500;
+        margin-top: 15px;
+        transition: all 0.3s ease;
+    }
+
+    .btn-login:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .signup-link {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .signup-link a {
+        color: #667eea;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .signup-link a:hover {
+        text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+        .login-container {
+            flex-direction: column;
+            margin: 20px;
+            height: auto;
+        }
+        
+        .logo-section {
+            display: none;
+        }
+        
+        .form-section {
+            padding: 30px 25px;
+        }
+    }
+</style>
+
+<div class="login-container">
+    <!-- Form Section -->
+    <div class="form-section">
+        <h2 class="form-title">Welcome Back</h2>
+        <form action="/Login" method="POST">
+            <div class="mb-3">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            
+            <button type="submit" class="btn btn-login w-100">Login</button>
+            
+            <div class="signup-link">
+                <p>Don't have an account? <a href="/user/signup">Sign up here</a></p>
+            </div>
+        </form>
+    </div>
+    
+    <!-- Logo Section -->
+    <div class="logo-section">
+        <div class="logo-container">
+            <div class="logo-icon">
+                <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                    <polyline points="10 17 15 12 10 7"></polyline>
+                    <line x1="15" y1="12" x2="3" y2="12"></line>
+                </svg>
+            </div>
+            <div class="logo-text">LOGIN</div>
+            <p style="margin-top: 8px; opacity: 0.8; font-size: 14px;">Access your account</p>
+        </div>
+    </div>
+</div>
+
+<%- include("./base/footer") %>

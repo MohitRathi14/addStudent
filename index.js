@@ -1,0 +1,19 @@
+const express = require('express');
+const user = require('./routes/user');
+const path = require('path');
+const connectDB = require('./connection.js');
+const app = express();
+app.use(express.urlencoded({ extended: true }));
+connectDB();
+app.use(user)
+app.set('view engine', 'ejs');
+app.set('views', path.resolve('./views'));
+
+app.listen(3000, (err) => {
+    if(err){
+        console.error('Error starting server:', err);
+    }
+    else {
+        console.log('Server is running on http://localhost:3000');
+    }
+});
