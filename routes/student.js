@@ -10,4 +10,7 @@ router.get('/delete/Student/:id', (req, res) => {
 router.get('/edit/Student/page/:id', (req, res) => {
     studentController.editStudent(req, res);
 });
+router.post('/edit/Student/:id', (req, res) => {
+    studentController.updateStudent(req, res);
+});
 module.exports = router;
