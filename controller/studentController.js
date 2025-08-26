@@ -42,8 +42,20 @@ async function editStudent(req, res) {
         res.status(500).send("Internal Server Error");
     }
 }
+async function updateStudent(req, res) {
+    try {
+        const studentId = req.params.id;
+        const updatedData = req.body;
+        await student.findByIdAndUpdate(studentId, updatedData);
+        res.render('welcomeAdmin',{ students: await student.find({}) }); // Redirect to home or another page after updating student
+    } catch (error) {
+        console.error("Error updating student:", error);
+        res.status(500).send("Internal Server Error");
+    }
+}
 module.exports = {
     addStudent,
     deleteStudent,
-    editStudent
+    editStudent,
+    updateStudent
 };
