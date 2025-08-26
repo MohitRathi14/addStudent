@@ -25,5 +25,43 @@
     </div>
   </div>
 </nav>
-    <h1>WELCOME</h1>
+ <div class="container">
+    <div class="alert bg-primary text-white text-center my-3"> 
+        <h2>STUDENT LIST</h2>
+      </div>  
+ </div>
+ <div class="container">
+    <table class="table text-center">
+        <thread>
+            <tr>
+                <th>Roll No</th>
+                <th>Student Name</th>
+                <th>Father Name</th>
+                <th>Course</th>
+                <th>Branch</th>
+                <th>Year Of Admission</th>
+                <th>Action</th>
+                
+            </tr>
+        </thread>
+        <tbody>
+            <% students.forEach(student => { %>
+            <tr>
+                <td><%= student.rollNo %></td>
+                <td><%= student.StudentName %></td>
+                <td><%= student.fatherName %></td>
+                <td><%= student.course %></td>
+                <td><%= student.branch %></td>
+                <td><%= student.yearOfAdmission %></td>
+                <td>
+                    <a href="/edit/Student/page/<%= student._id %>" class="btn btn-primary">Edit</a>
+                    <a href="/delete/Student/<%= student._id %>" class="btn btn-danger">Delete</a>
+                </td>
+                
+            </tr>
+            <% }); %>
+        </tbody>
+    </table>
+ </div>
+
 <%- include("./base/footer") %>
