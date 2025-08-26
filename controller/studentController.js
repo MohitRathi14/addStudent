@@ -16,6 +16,34 @@ async function addStudent(req, res) {
         res.status(500).send("Internal Server Error");
     }
 }
+async function deleteStudent(req, res) {
+    try {
+        const studentId = req.params.id;
+        await student.findByIdAndDelete(studentId);
+        res.render('welcomeAdmin',{
+            students: await student.find({})
+        }); // Redirect to home or another page after deleting student
+    } catch (error) {
+        console.error("Error deleting student:", error);
+        res.status(500).send("Internal Server Error");
+    }   
+}
+async function editStudent(req, res) {
+    try {
+        const studentId = req.params.id;
+        const studentData = await student.findById(studentId);
+        if (!studentData) {
+            return res.status(404).send("Student not found");
+        }
+        // Render a form pre-filled with student data for editing
+        res.render('editStudent', { student: studentData });
+    } catch (error) {
+        console.error("Error fetching student for edit:", error);
+        res.status(500).send("Internal Server Error");
+    }
+}
 module.exports = {
-    addStudent
+    addStudent,
+    deleteStudent,
+    editStudent
 };
