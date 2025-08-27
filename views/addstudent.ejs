@@ -8,7 +8,7 @@
      <div class="container">
          <div class="row">
             <div class="col-md-6 offset-md-3">
-                <form action="/add/student" method="POST">
+                <form action="/add/student" method="POST" enctype="multipart/form-data">
                      <div class="mb-3">
 
                         <label for="rollNo" class="form-label">RollNo: </label>
@@ -35,6 +35,10 @@
                     <div class="mb-3">
                         <label for="yearOfAdmission" class="form-label">Year Of Admission</label>
                         <input type="text" class="form-control" id="yearOfAdmission" name="yearOfAdmission" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="studentImage">select student Image</label>
+                        <input type="file" class="form-control" id="studentImage" name="studentImage" required>
                     </div>
                     <button type="submit" class="btn btn-warning w-100">Add Student</button>                    
                 </form>

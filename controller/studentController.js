@@ -1,9 +1,11 @@
 const student = require('../models/student');
+const cloudinary = require('cloudinary').v2;
 async function addStudent(req, res) {
     try {
         console.log(req.body);
-        let studentData = new student(req.body);
-        await studentData.save();
+        console.log(req.file);
+        // let studentData = new student(req.body);
+        // await studentData.save();
         // res.redirect('/'); // Redirect to home or another page after adding student
         // res.send("Student added successfully"); // Placeholder response
         let students =await student.find({});

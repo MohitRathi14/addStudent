@@ -8,6 +8,7 @@ const studentSchema=new Schema({
     course:{type:String,required:true},
     branch:{type:String},
     yearOfAdmission:{type:String},
+    studentImage:{type:String},
     CreatedAt:Date,
     UpdatedAt:Date
 })
