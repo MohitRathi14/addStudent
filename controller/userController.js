@@ -10,7 +10,6 @@ async function addUser(req, res) {
         if (!user) {
             return res.status(400).send("Invalid user data");
         }
-        user.userType = 'admin'; 
         let encryptedPassword = await bcrypt.hashSync(user.password, 10);
         user.password = encryptedPassword;
         await user.save();
