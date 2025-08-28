@@ -9,6 +9,7 @@
     <table class="table text-center">
         <thread>
             <tr>
+                <th>Student Photo</th>
                 <th>Roll No</th>
                 <th>Student Name</th>
                 <th>Father Name</th>
@@ -22,6 +23,12 @@
         <tbody>
             <% students.forEach(student => { %>
             <tr>
+                <td>
+                    <% if (student.studentImage) { %>
+                        <img src="<%= student.studentImage %>" alt="Student Image" width="50px" height="50px">
+                    <% } else { %>
+                        No Image
+                    <% } %>
                 <td><%= student.rollNo %></td>
                 <td><%= student.StudentName %></td>
                 <td><%= student.fatherName %></td>
