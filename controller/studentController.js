@@ -7,13 +7,14 @@ async function addStudent(req, res) {
         
         // res.redirect('/'); // Redirect to home or another page after adding student
         // res.send("Student added successfully"); // Placeholder response
+        let result;
         if (req.file) {
             cloudinary.config({
             cloud_name : "da1p7hanx",
             api_key : "329818545746551",
             api_secret : "kSTAGeKMMBGIjaQZYNhp7Tgz0Iw",
             });
-            const result = await cloudinary.uploader.upload(req.file.path);
+            result = await cloudinary.uploader.upload(req.file.path);
             console.log(result);
             req.body.image = result.secure_url;
             
