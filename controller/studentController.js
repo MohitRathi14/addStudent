@@ -4,10 +4,28 @@ async function addStudent(req, res) {
     try {
         console.log(req.body);
         console.log(req.file);
-        // let studentData = new student(req.body);
-        // await studentData.save();
+        
         // res.redirect('/'); // Redirect to home or another page after adding student
         // res.send("Student added successfully"); // Placeholder response
+        if (req.file) {
+            cloudinary.config({
+            cloud_name : "da1p7hanx",
+            api_key : "329818545746551",
+            api_secret : "kSTAGeKMMBGIjaQZYNhp7Tgz0Iw",
+            });
+            const result = await cloudinary.uploader.upload(req.file.path);
+            console.log(result);
+            req.body.image = result.secure_url;
+            
+        }
+        let studentData = new student(req.body);
+        if (req.file) {
+            studentData.studentImage = result.secure_url;
+            
+        }
+        await studentData.save();
+        console.log('student added');
+        
         let students =await student.find({});
 
         res.render('studentList',{
