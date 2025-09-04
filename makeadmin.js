@@ -11,8 +11,8 @@ async function makeAdmin() {
             let user = new User();
             user.firstName = "Mohit";
             user.lastName = "Rathi";
-            user.email = "mohit@gmail.com";
-            user.password = await bcrypt.hashSync("Mohit@123", 10);
+            user.email = "mohitrathi@gmail.com";
+            user.password = await bcrypt.hashSync("mohit123", 10);
             user.userType = 'admin';
 
 
