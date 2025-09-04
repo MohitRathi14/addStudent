@@ -2,12 +2,9 @@ const User = require('./models/User');
 const bcrypt = require('bcrypt');
 async function makeAdmin() {
     try {
-         let userExists = await User.findOne({ email: User.email });
-        if (userExists) {
-            console.log('Admin user already exists');
-            return;
-        }
-        else {
+         let userExists = await User.findOne({ email: "mohitrathi@gmail.com" });
+        
+        if (!userExists) {
             let user = new User();
             user.firstName = "Mohit";
             user.lastName = "Rathi";
@@ -18,6 +15,10 @@ async function makeAdmin() {
 
             console.log('Creating admin user');
             await user.save();
+        }
+        else{
+            console.log('Admin user already exists');
+            return;
         }
         console.log('Admin user created');
     } catch (error) {
