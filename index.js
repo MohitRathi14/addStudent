@@ -10,6 +10,7 @@ connectDB();
 makeAdmin();
 app.use(user)
 app.use(student);
+app.set("views", path.join(__dirname, "views"));
 app.set('view engine', 'ejs');
 app.set('views', path.resolve('./views'));
 
