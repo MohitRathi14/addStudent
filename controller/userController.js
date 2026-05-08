@@ -36,9 +36,14 @@ async function doLogin(req, res) {
         }
         let students = await Student.find({});
         // res.send("Login successful");
-        res.render('welcomeAdmin',{
-            students: students
-        }); // Redirect to a welcome page after successful login
+        if (userPrsent.userType==='admin') {
+             res.render('welcomeAdmin',{
+                students: students
+            }); // Redirect to a welcome page after successful login
+        }else{
+           res.send('you are not admin');
+        }
+        
     }
     catch (error) {
         console.error("Error during login:", error);
